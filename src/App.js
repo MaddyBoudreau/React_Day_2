@@ -8,6 +8,7 @@ import { BrowserRouter as Router,
 import Contact from './views/Contact'
 import Home from './views/Home'
 import Blog from './views/Blog'
+import BlogSingle from './views/BlogSingle'
 
 export default function App() {
 
@@ -30,7 +31,11 @@ export default function App() {
 
                 <Routes>
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/blog" element={<Blog />} />
+                    <Route path="blog">
+                        {/* URL Prefix of /blog */}
+                        <Route path=":id" element={<BlogSingle />} />
+                        <Route path="" element={<Blog />} />
+                    </Route>
                     <Route path="/" element={<Home />}  />
                 </Routes>
             </Router>
