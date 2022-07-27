@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import Post from './Post'
+import Car from './Car'
 
-export default function PostList() {
-    const [posts, setPosts] = useState([])
+export default function CarList() {
+    const [cars, setCars] = useState([])
 
     useEffect(() => {
         // fetch('http://127.0.0.1:5000/api/posts')
-        fetch('https://fakebook-june-2022.herokuapp.com/api/posts')
+        fetch('https://my-json-server.typicode.com/Llang8/cars-api/cars')
             .then((res) => res.json())
-            .then((data) => setPosts(data))
+            .then((data) => setCars(data))
     }, [])
 
     return (
@@ -24,7 +24,7 @@ export default function PostList() {
                 }) 
             } */}
             { 
-                posts.map(post => <Post post={post} key={ post.id } />)
+                cars.map(car => <Car car={car} key={ car.id } />)
             }
         </>
     )

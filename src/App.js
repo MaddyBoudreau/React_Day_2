@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import PostList from './components/PostList'
-import { BrowserRouter as Router,
+import CarList from './components/CarList'
+import {
+    BrowserRouter as Router,
     Routes,
     Route,
-    Link 
+    Link
 } from 'react-router-dom'
-import Contact from './views/Contact'
 import Home from './views/Home'
-import Blog from './views/Blog'
-import BlogSingle from './views/BlogSingle'
+import Inventory from './views/Inventory'
+import InventorySingle from './views/InventorySingle'
 
 export default function App() {
 
@@ -21,22 +21,20 @@ export default function App() {
                             <Link to="/">Home</Link>
                         </li>
                         <li>
-                            <Link to="/blog">Blog</Link>
+                            <Link to="/inventory">Inventory</Link>
                         </li>
-                        <li>
-                            <Link to="/contact">Contact</Link>
-                        </li>
+                        {/* <li>
+                            <Link to="/inventorySingle">Inventory Single</Link>
+                        </li> */}
                     </ul>
                 </nav>
 
                 <Routes>
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="blog">
-                        {/* URL Prefix of /blog */}
-                        <Route path=":id" element={<BlogSingle />} />
-                        <Route path="" element={<Blog />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path='Inventory'>
+                        <Route path=":id" element={<InventorySingle />} />
+                        <Route path="" element={<Inventory />} />
                     </Route>
-                    <Route path="/" element={<Home />}  />
                 </Routes>
             </Router>
         </>
